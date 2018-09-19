@@ -1,0 +1,82 @@
+﻿@model Vidly.ViewModels.CustomerListViewModel
+@{
+    ViewBag.Title = "Customers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Customers</h2>
+
+@if (Model.Customers.Count == 0)
+{
+    <p>There are no customers yet!</p>
+}
+else
+{
+    <table id="customers" class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Customer</th>
+                <th>Membership Type</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var customer in Model.Customers)
+            {
+                <tr>
+                    <td>@Html.ActionLink(customer.Name, "Edit", "Customers", new { id = customer.Id }, null)</td>
+                    @*To make the code below work, you need to use eager loading - see CustomersController for more details*@
+                    <td>@customer.MembershipType.Name</td>
+                    <td>
+                        @*Button has 2 classes, js- prefix means its purely for javascript. This button will delete a record.
+                          The data-customer-id="@customer.Id" tag allows us to get the customer Id we need to delete the record*@
+                        <button data-customer-id="@customer.Id" class="btn-link js-delete">Delete</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            @*This line of code applies datatables script to our table*@
+            $("#customers").DataTable();
+
+            $("#customers").on("click", ".js-delete", function () {
+                var button = $(this);
+
+                bootbox.confirm("Are you sure you want to delete this customer?", function (result) {
+                    if (result) {
+                        $.ajax({
+                            url: "/api/customers/" + button.attr("data-customer-id"),
+                            method: "DELETE",
+                            success: function () {
+                                button.parents("tr").remove();
+                            }
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+}
+
+@*
+    <table style="width:100%">
+        <tr>
+            <th>Customers</th>
+        </tr>
+        <tr>
+            <td>@Html.ActionLink("Doug Clarke", "Details", "Customers", new { Id = 1 }, null)</td>
+        </tr>
+        <tr>
+            <td>@Html.ActionLink("Samantha Giroux", "Details", "Customers", new { Id = 2 }, null)</td>
+        </tr>
+        <tr>
+            <td>@Html.ActionLink("Adam Smith", "Details", "Customers", new { Id = 3 }, null)</td>
+        </tr>
+    </table>
+*@

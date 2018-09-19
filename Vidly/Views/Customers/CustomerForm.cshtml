@@ -1,0 +1,58 @@
+﻿@model Vidly.ViewModels.CustomerFormViewModel
+@{
+    ViewBag.Title = "CustomerForm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>New Customer</h2>
+
+@using (Html.BeginForm("Save", "Customers"))
+{
+    @Html.ValidationSummary()
+    <div class="form-group">
+        @*If we use the Html.Methods instead of writing the html by hand all our annotations will be automatically applied*@
+        @Html.LabelFor(m => m.Customer.Name)
+        @*TextBoxFor can accept a second parameter as an anonymous object, any properties we add to the object will be rendered as html attrbutes*@
+        @*"form-control is a botstrap class that gives input fields a modern look"*@
+        @Html.TextBoxFor(m => m.Customer.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Customer.Name)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Customer.MembershipTypeId)
+        @*A drop down list has 4 arguments that must be met. The first is our customer info(m => m.Customer.MembershipType)*@
+        @*SelectList() is a method for adding properties for a drop down list.
+            First argument is a list of items. IE: Model.MembershipTypes,
+            second argument is the name of the property that holds the value for each item in the list. IE: "Id",
+            third argument is property that holds the text for each item. IE: "Name"*@
+        @*The second argument is the default text for the drop down box*@
+        @*The last argument is the html you want to pass (like all other forms)*@
+        @Html.DropDownListFor(m => m.Customer.MembershipTypeId, new SelectList(Model.MembershipTypes, "Id", "Name"), "Select Membership Type", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Customer.MembershipTypeId)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Customer.BirthDate)
+        @*The second argument is a format string for how you want to display the DateTime object*@
+        @Html.TextBoxFor(m => m.Customer.BirthDate, "{0:d MMM yyyy}", new { @class = "form-control" })
+        @Html.ValidationMessageFor(m=>m.Customer.BirthDate)
+    </div>
+    <div class="checkbox">
+        <label>
+            @Html.CheckBoxFor(m => m.Customer.IsSubscribedToNewsLetter) Subscribed To Newsletter?
+        </label>
+    </div>
+    <br>
+    @*Since we are relying on Id we need to make sure we pass it in our view, but we don't want others to see the Id so we make it a hidden field*@
+    @*This field will be displayed when we try to use @Html.ValidationSummary() to show all required fields because it is set to hidden.
+        To avoid this initialize: Customer = new Customer() in our viewModel, in our Customer/CustomerForm method
+        This will pass a default customer that has an Id of 0*@
+    @Html.HiddenFor(m => m.Customer.Id)
+    @Html.AntiForgeryToken()
+    <button type="submit" class="btn btn-primary">Save</button>
+    }
+
+@*This is how we load a custom script, in this case we are loading a scripts for client side validation*@
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")  
+}
+

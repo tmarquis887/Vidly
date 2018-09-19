@@ -1,0 +1,35 @@
+﻿@model Vidly.ViewModels.RandomMovieViewModel
+@{
+    ViewBag.Title = "Random";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{ 
+    //the @{} is a code block, anything in it can be written in c#
+    //If we wanted to create a class called "popular" we can use this variable if the movie has been rented more then 5 times
+    var className = Model.Customers.Count > 5 ? "popular" : null;
+}
+
+@*
+    @* is how to write comments in the razor view engine.
+    The code below will be of class "popular" if it has been rented by more then 5 customers    
+*@
+<h2 class="@className">@Model.Movie.Name</h2>
+
+@if (Model.Customers.Count == 0)
+{
+    //error checking to see if movie has not been rented
+    <p>No one has rented this movie before.</p>
+}
+else
+{
+    <ul>
+        @foreach (var customer in Model.Customers)
+        {
+            <li>@customer.Name</li>
+        }
+    </ul>
+}
+
+
+
