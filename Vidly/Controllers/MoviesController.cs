@@ -30,11 +30,12 @@ namespace Vidly.Controllers
         }
         public ActionResult Index()
         {
-            var movies = _context.Movie.Include(m => m.GenreType).ToList();
+            //var movies = _context.Movie.Include(m => m.GenreType).ToList();
 
-            var viewModel = new MovieListViewModel { Movies = movies };
+            //var viewModel = new MovieListViewModel { Movies = movies };
 
-            return View(viewModel);
+            //return View(viewModel);
+            return View();
         }
 
         public ActionResult Edit(int id)

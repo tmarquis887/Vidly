@@ -118,11 +118,12 @@ namespace Vidly.Controllers
             //We use the Include method when trying to use eager loading. 
             //This will allow us to access the MembershipType which is stored in a different model from the one we load in the index.cshtml
             //We must also add using System.Data.Entity; above for this to work.
-            var customers = _context.Customers.Include(c => c.MembershipType).ToList();
+            //var customers = _context.Customers.Include(c => c.MembershipType).ToList();
 
-            var viewModel = new CustomerListViewModel { Customers = customers };
+            //var viewModel = new CustomerListViewModel { Customers = customers };
 
-            return View(viewModel);
+            //return View(viewModel);
+            return View();
         }
         
         public ActionResult Details(int id)
