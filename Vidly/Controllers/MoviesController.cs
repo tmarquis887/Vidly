@@ -137,6 +137,7 @@ namespace Vidly.Controllers
 
 
         // GET: Movies/Random
+        [Authorize(Roles = RoleName.CanManageMovies)]
         public ActionResult Random()
         {
             var movie = new Movie() { Name = "Shrek!"};

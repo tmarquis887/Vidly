@@ -256,3 +256,10 @@ C:\Users\tmarquis\Documents\GitHub\Vidly\Vidly\obj\Debug\Vidly.dll
 C:\Users\tmarquis\Documents\GitHub\Vidly\Vidly\obj\Debug\Vidly.pdb
 C:\Users\tmarquis\Documents\GitHub\Vidly\Vidly\obj\Debug\Vidly.Migrations.SeedUsers.resources
 C:\Users\tmarquis\Documents\GitHub\Vidly\Vidly\obj\Debug\Vidly.Migrations.AddDrivingLicenseToApplicationUser.resources
+C:\Users\tmarquis\Documents\GitHub\Vidly\Vidly\obj\Debug\Vidly.Migrations.AddPhoneToApplicationUser.resources
+C:\Users\tmarquis\Documents\GitHub\Vidly\Vidly\obj\Debug\Vidly.Migrations.AddRegExAnnotationToPhoneInApplicationUser.resources
+C:\Users\tmarquis\Documents\GitHub\Vidly\Vidly\bin\Glimpse.Ado.dll
+C:\Users\tmarquis\Documents\GitHub\Vidly\Vidly\bin\Glimpse.AspNet.dll
+C:\Users\tmarquis\Documents\GitHub\Vidly\Vidly\bin\Glimpse.Core.dll
+C:\Users\tmarquis\Documents\GitHub\Vidly\Vidly\bin\Glimpse.EF6.dll
+C:\Users\tmarquis\Documents\GitHub\Vidly\Vidly\bin\Glimpse.Mvc5.dll

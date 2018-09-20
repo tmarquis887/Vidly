@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.Caching;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -123,6 +124,10 @@ namespace Vidly.Controllers
             //var viewModel = new CustomerListViewModel { Customers = customers };
 
             //return View(viewModel);
+
+            if (MemoryCache.Default["Genres"] == null)
+                MemoryCache.Default["Genres"] = _context.Genres.ToList();
+            var genres = MemoryCache.Default["Genres"] as IEnumerable<Genre>;
             return View();
         }
         
