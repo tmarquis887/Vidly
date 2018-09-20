@@ -254,3 +254,5 @@ C:\Users\tmarquis\Documents\GitHub\Vidly\Vidly\obj\Debug\Vidly.Migrations.AddNot
 C:\Users\tmarquis\Documents\GitHub\Vidly\Vidly\obj\Debug\Vidly.csproj.GenerateResource.Cache
 C:\Users\tmarquis\Documents\GitHub\Vidly\Vidly\obj\Debug\Vidly.dll
 C:\Users\tmarquis\Documents\GitHub\Vidly\Vidly\obj\Debug\Vidly.pdb
+C:\Users\tmarquis\Documents\GitHub\Vidly\Vidly\obj\Debug\Vidly.Migrations.SeedUsers.resources
+C:\Users\tmarquis\Documents\GitHub\Vidly\Vidly\obj\Debug\Vidly.Migrations.AddDrivingLicenseToApplicationUser.resources

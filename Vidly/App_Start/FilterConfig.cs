@@ -9,6 +9,8 @@ namespace Vidly
         {
             filters.Add(new HandleErrorAttribute());
             filters.Add(new AuthorizeAttribute());
+            //to disable http and only use SSLs https use
+            filters.Add(new RequireHttpsAttribute());
         }
     }
 }
