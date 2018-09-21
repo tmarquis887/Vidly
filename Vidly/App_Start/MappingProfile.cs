@@ -21,6 +21,8 @@ namespace Vidly.App_Start
             Mapper.CreateMap<Movie, MovieDto>();
             Mapper.CreateMap<Genre, GenreDto>();
             Mapper.CreateMap<MembershipType, MembershipTypeDto>();
+            Mapper.CreateMap<Rental, NewRentalDto>();
+
 
             //dto to domain
             //We also want to map a DTO to an object, and ignore overwriting the Id property

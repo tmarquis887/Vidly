@@ -20,7 +20,9 @@ namespace Vidly
                         //core data tables script
                         "~/Scripts/datatables/jquery.datatables.js",
                         //integrates datatables with bootstrap
-                        "~/Scripts/datatables/datatables.bootstrap.js"));
+                        "~/Scripts/datatables/datatables.bootstrap.js",
+                        "~/Scripts/typeahead.bundle.js"
+                        ));
 
             //this bundle is only loaded if we load it manually in our view
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
@@ -41,6 +43,7 @@ namespace Vidly
                       "~/Content/bootstrap-lumen.css",
                       //stylesheet makes datatables look like bootstrap tables
                       "~/Content/datatables/css/datatables.bootstrap.css",
+                      "~/Content/typeahead.css",
                       "~/Content/site.css"));
         }
     }

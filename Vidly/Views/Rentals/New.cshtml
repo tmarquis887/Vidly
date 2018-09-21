@@ -1,0 +1,47 @@
+﻿@{
+    ViewBag.Title = "New Rental Form";
+}
+
+<h2>New Rental Form</h2>
+
+<form>
+    @*div.form-group>label+input[type='text'].form-control
+        - then hit tab to display the code below, Web Essentials Plug-In allows this.*@
+    <div class="form-group">
+        <label>Customer</label>
+        <input id="customer" type="text" value="" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label>Movie</label>
+        <input id="movie" type="text" value="" class="form-control" />
+    </div>
+
+    <button class="btn btn-primary">Submit</button>
+</form>
+
+@*This is how we load a custom script, in this case we are loading a scripts for client side validation*@
+
+@section scripts {
+    <script>      
+        $(document).ready(function () {
+            var customers = new Bloodhound({
+                datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
+                queryTokenizer: Bloodhound.tokenizers.whitespace,               
+                remote: {
+                    url: 'api/customers',
+                    wildcard: '%QUERY'
+                }
+            });
+
+            $('#customer').typeahead({
+                minLength: 3,
+                highlight: true
+            }, {
+                name: 'customers',
+                display: 'name',
+                source: customers
+            });
+        });
+    </script>
+}

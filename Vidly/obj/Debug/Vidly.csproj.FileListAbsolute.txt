@@ -263,3 +263,6 @@ C:\Users\tmarquis\Documents\GitHub\Vidly\Vidly\bin\Glimpse.AspNet.dll
 C:\Users\tmarquis\Documents\GitHub\Vidly\Vidly\bin\Glimpse.Core.dll
 C:\Users\tmarquis\Documents\GitHub\Vidly\Vidly\bin\Glimpse.EF6.dll
 C:\Users\tmarquis\Documents\GitHub\Vidly\Vidly\bin\Glimpse.Mvc5.dll
+C:\Users\tmarquis\Documents\GitHub\Vidly\Vidly\obj\Debug\Vidly.Migrations.AddRentalsToDatabase.resources
+C:\Users\tmarquis\Documents\GitHub\Vidly\Vidly\obj\Debug\Vidly.Migrations.NullableTypeToDateReturnedInRental.resources
+C:\Users\tmarquis\Documents\GitHub\Vidly\Vidly\obj\Debug\Vidly.Migrations.AddNumberAvailableToMovie.resources

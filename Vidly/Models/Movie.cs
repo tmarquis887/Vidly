@@ -26,6 +26,8 @@ namespace Vidly.Models
         [Display(Name = "Number in Stock")]
         public int NumberInStock { get; set; }
 
+        public byte NumberAvailable { get; set; }
+
         public Genre GenreType { get; set; }
 
         [Display(Name = "Genre")]
